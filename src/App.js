@@ -10,6 +10,7 @@ import Navbar from './components/Navbar';
 import EventDetail from './components/EventDetail';
 import BookingForm from './components/BookingForm';
 import BookingReview from './components/BookingReview';
+import BookingSuccess from './components/BookingSuccess';
 
 class App extends Component {
   render() {
@@ -23,6 +24,7 @@ class App extends Component {
               <Route path='/events/:id' component={EventDetail}/>
               <Route exact path='/order' component={BookingForm}/>
               <Route path='/order/review' component={BookingReview}/>
+              <Route path='/order/success' component={BookingSuccess}/>
             </Container>
             <div className='footer'><p>Booking System | Nandira S Paturohman</p></div>
           </div>

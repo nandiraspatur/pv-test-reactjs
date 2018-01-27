@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Image, Icon, Input } from 'semantic-ui-react';
 
-import { getEventDetail, saveDateAmount } from '../actions/events';
+import { getEventDetail } from '../actions/events';
+import { saveDateAmount } from '../actions/booking'
 
 class EventDetail extends Component {
   handleInput({target}) {
@@ -72,7 +73,7 @@ class EventDetail extends Component {
 const mapStateToProps = (state) => {
   console.log(state)
   return {
-    eventDetail: state.eventDetail
+    eventDetail: state.eventReducers.eventDetail
   };
 };
 

@@ -1,7 +1,6 @@
 let initialState = {
   events: [],
   eventDetail: '',
-  bookingData: {}
 }
 
 const eventReducers = (state = initialState, action) => {
@@ -10,10 +9,6 @@ const eventReducers = (state = initialState, action) => {
       return {...state, events: action.payload};
     case 'GET_EVENT_DETAIL':
       return {...state, eventDetail: action.payload}
-    case 'SAVE_DATE_AMOUNT':
-      return {...state, bookingData: action.payload}
-    case 'SAVE_CONTACT_DATA':
-      return {...state, bookingData: action.payload}
     default:
       return state;
   }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Image, Divider, Table } from 'semantic-ui-react'
-import { connect } from 'react-redux'
+import { Image, Divider, Table } from 'semantic-ui-react';
+import { connect } from 'react-redux';
+import { saveBookingData } from '../actions/booking';
 
 class BookingReview extends Component {
   getDate() {
@@ -20,6 +21,11 @@ class BookingReview extends Component {
     var year = date.getFullYear();
     return day + ' ' + monthNames[monthIndex] + ' ' + year;
   };
+
+  handleClickSubmit() {
+    this.props.saveBooking(this.props.bookingData)
+    this.props.history.push('/order/success')
+  }
 
   componentDidMount() {
     window.scrollTo(0, 0)
@@ -101,14 +107,14 @@ class BookingReview extends Component {
 const mapStateToProps = (state) => {
   console.log(state)
   return {
-    bookingData: state.bookingData,
-    eventDetail: state.eventDetail
+    bookingData: state.bookingReducers.bookingData,
+    eventDetail: state.eventReducers.eventDetail
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    saveBooking: () => dispatch( )
+    saveBooking: (value) => dispatch(saveBookingData(value))
   };
 };
 

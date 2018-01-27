@@ -35,17 +35,3 @@ export const getEventDetail = (id) => {
     }
   }
 }
-
-export const saveDateAmount = (payload) => {
-  return {
-    type: 'SAVE_DATE_AMOUNT',
-    payload
-  }
-}
-
-export const saveContactData = (payload) => {
-  return {
-    type: 'SAVE_CONTACT_DATA',
-    payload
-  }
-}

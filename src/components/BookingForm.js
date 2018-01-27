@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Form, Image, Divider, Table } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 
-import { saveContactData } from '../actions/events'
+import { saveContactData } from '../actions/booking'
 
 class BookingForm extends Component {
   handleInput({target}) {
@@ -125,8 +125,8 @@ class BookingForm extends Component {
 const mapStateToProps = (state) => {
   console.log(state)
   return {
-    bookingData: state.bookingData,
-    eventDetail: state.eventDetail
+    bookingData: state.bookingReducers.bookingData,
+    eventDetail: state.eventReducers.eventDetail
   };
 };
 
