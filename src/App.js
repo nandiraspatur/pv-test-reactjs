@@ -7,6 +7,7 @@ import { Container } from 'semantic-ui-react'
 import store from './store'
 import Home from './components/Home'
 import Navbar from './components/Navbar'
+import EventDetail from './components/EventDetail'
 
 class App extends Component {
   render() {
@@ -16,7 +17,8 @@ class App extends Component {
           <div>
             <Navbar/>
             <Container>
-              <Route exact path='/' component={ Home }/>
+              <Route exact path='/' component={Home}/>
+              <Route path='/events/:id' component={EventDetail}/>
             </Container>
           </div>
         </Router>

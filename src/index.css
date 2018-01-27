@@ -12,3 +12,11 @@ body {
 .button-detail {
   float: right;
 }
+
+.ui.menu .item {
+  line-height: 0;
+}
+
+a {
+  color: black !important;
+}
