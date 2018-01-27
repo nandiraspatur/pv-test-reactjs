@@ -42,3 +42,10 @@ export const saveDateAmount = (payload) => {
     payload
   }
 }
+
+export const saveContactData = (payload) => {
+  return {
+    type: 'SAVE_CONTACT_DATA',
+    payload
+  }
+}

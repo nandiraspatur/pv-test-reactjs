@@ -2,17 +2,11 @@ import React, { Component } from 'react';
 import { Form, Image, Divider, Table } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 
-class BookingForm extends Component {
-  constructor() {
-    super()
-    this.state = {
-      fullname: '',
-      phone: '',
-      email: '',
-    }
-  };
+import { saveContactData } from '../actions/events'
 
+class BookingForm extends Component {
   handleInput({target}) {
+    console.log(target.value)
     this.setState({
       [target.name]: target.value
     });
@@ -20,7 +14,8 @@ class BookingForm extends Component {
 
   handleClickSubmit() {
     if(this.state.fullname && this.state.phone && this.state.email) {
-      console.log(this.state)
+      this.props.saveContactData(this.state)
+      this.props.history.push('/order/review')
     } else {
       alert('Mohon isi semua form yg tesedia!!!')
     }
@@ -49,6 +44,16 @@ class BookingForm extends Component {
     return total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
   };
 
+  componentDidMount() {
+    window.scrollTo(0, 0)
+    this.setState({
+      total: this.props.eventDetail.price * this.props.bookingData.amount,
+      date: this.props.bookingData.date,
+      amount: this.props.bookingData.amount,
+      event: this.props.bookingData.event
+    });
+  }
+
   render () {
     let eventDetail = this.props.eventDetail;
     return (
@@ -59,10 +64,10 @@ class BookingForm extends Component {
           <p>Data yang Anda isi hanya akan digunakan untuk menghubungi Anda jika ada masalah dengan pesanan.</p>
           <div>
             <Form>
-              <Form.Input fluid label='Nama Lengkap' />
+              <Form.Input fluid name='fullname' label='Nama Lengkap*' onChange={(e) => this.handleInput(e)}/>
               <Form.Group widths='equal'>
-                <Form.Input fluid label='No. Handphone' />
-                <Form.Input fluid label='Alamat Email' />
+                <Form.Input fluid name='phone' label='No. Handphone*' onChange={(e) => this.handleInput(e)}/>
+                <Form.Input fluid name='email' label='Alamat Email*' onChange={(e) => this.handleInput(e)}/>
               </Form.Group>
             </Form>
           </div>
@@ -127,7 +132,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispacth) => {
   return {
-    saveContactData: () => dispacth()
+    saveContactData: (value) => dispacth(saveContactData(value))
   }
 };
 

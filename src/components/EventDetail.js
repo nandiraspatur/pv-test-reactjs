@@ -5,15 +5,6 @@ import { Image, Icon, Input } from 'semantic-ui-react';
 import { getEventDetail, saveDateAmount } from '../actions/events';
 
 class EventDetail extends Component {
-  constructor() {
-    super()
-    this.state = {
-      date: '',
-      amount: '',
-      event: ''
-    };
-  };
-
   handleInput({target}) {
     let value = target.value;
     if(target.name === 'date') value = new Date(value).toISOString();
@@ -37,6 +28,10 @@ class EventDetail extends Component {
     });
     this.props.getEventDetail(this.props.match.params.id);
   };
+
+  componentDidMount() {
+    window.scrollTo(0, 0)
+  }
   
   render() {
     let eventDetail = this.props.eventDetail;

@@ -12,6 +12,8 @@ const eventReducers = (state = initialState, action) => {
       return {...state, eventDetail: action.payload}
     case 'SAVE_DATE_AMOUNT':
       return {...state, bookingData: action.payload}
+    case 'SAVE_CONTACT_DATA':
+      return {...state, bookingData: action.payload}
     default:
       return state;
   }

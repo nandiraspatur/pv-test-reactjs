@@ -99,6 +99,19 @@ a {
   margin-bottom: 150px;
 }
 
+.detail-review {
+  background: #fff;
+  flex: 1;
+  border-radius: 5px;
+  padding: 20px 30px;
+  margin-left: 10px;
+}
+
+.booking-review {
+  display: flex;
+  margin-bottom: 150px;  
+}
+
 .detail-event {
   background: #fff;
   flex: 1;
