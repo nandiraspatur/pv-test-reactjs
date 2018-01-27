@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from 'axios';
 
 const eventsData = (payload) => {
   return {
@@ -14,16 +14,16 @@ export const getAllEvents = () => {
       dispatch(eventsData(events.data))
     } catch (error) {
       console.log(error)
-    }
-  }
-}
+    };
+  };
+};
 
 const eventDetailData = (payload) => {
   return {
     type: 'GET_EVENT_DETAIL',
     payload
-  }
-}
+  };
+};
 
 export const getEventDetail = (id) => {
   return async (dispatch) => {
@@ -32,6 +32,6 @@ export const getEventDetail = (id) => {
       dispatch(eventDetailData(eventDetail.data))
     } catch (error) {
       console.log(error)
-    }
-  }
-}
+    };
+  };
+};

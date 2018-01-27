@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Image } from 'semantic-ui-react';
 
 class BookingSuccess extends Component {
   componentWillMount() {
@@ -8,12 +9,12 @@ class BookingSuccess extends Component {
 
   render () {
     return ( 
-      <div className='success-msg'>
-        {this.props.bookingStatus ?
-          <div>
+      <div>
+        {!this.props.bookingStatus ?
+          <div className='success-msg'>
             <h1>Pesanan Berhasil</h1>
             <p>Terima kasih pesanan anda akan segera kami proses.</p>
-            <p>{JSON.stringify(this.props.bookingStatus)}</p>
+            <Image centered size='medium' src='https://www169.lunapic.com/do-not-link-here-use-hosting-instead/151706781616883573?8498162669'/>
           </div>
           :
           <p>Loading...</p>

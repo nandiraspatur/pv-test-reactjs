@@ -11,6 +11,7 @@ import EventDetail from './components/EventDetail';
 import BookingForm from './components/BookingForm';
 import BookingReview from './components/BookingReview';
 import BookingSuccess from './components/BookingSuccess';
+import BookingList from './components/BookingList';
 
 class App extends Component {
   render() {
@@ -25,6 +26,7 @@ class App extends Component {
               <Route exact path='/order' component={BookingForm}/>
               <Route path='/order/review' component={BookingReview}/>
               <Route path='/order/success' component={BookingSuccess}/>
+              <Route path='/booking' component={BookingList}/>
             </Container>
             <div className='footer'><p>Booking System | Nandira S Paturohman</p></div>
           </div>

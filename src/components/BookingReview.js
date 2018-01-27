@@ -34,6 +34,7 @@ class BookingReview extends Component {
   render() {
     let bookingData = this.props.bookingData
     let eventDetail = this.props.eventDetail
+    let total = bookingData.total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
     return (
       <div>
         <h1>Review Pesanan</h1>
@@ -80,7 +81,7 @@ class BookingReview extends Component {
               <Table.Body>
                 <Table.Row>
                   <Table.Cell>Jumlah {bookingData.amount}x</Table.Cell>
-                  <Table.Cell width={6}>Rp {bookingData.total}</Table.Cell>
+                  <Table.Cell width={6}>Rp {total}</Table.Cell>
                 </Table.Row>
                 <Table.Row>
                   <Table.Cell>Pajak</Table.Cell>
@@ -90,7 +91,7 @@ class BookingReview extends Component {
               <Table.Footer>
                 <Table.Row className='total-price'>
                   <Table.Cell>Total</Table.Cell>
-                  <Table.Cell>Rp {bookingData.total}</Table.Cell>
+                  <Table.Cell>Rp {total}</Table.Cell>
                 </Table.Row>
               </Table.Footer>
             </Table>

@@ -12,7 +12,7 @@ class EventList extends Component {
 
   render () {
     return (
-      <Card.Group itemsPerRow={4} stackable>
+      <Card.Group itemsPerRow={3} stackable>
         {!this.props.events ? 
           <p>Loading...</p>
           :

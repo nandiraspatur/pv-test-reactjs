@@ -1,6 +1,7 @@
 let initialState = {
   bookingData: '',
-  bookingStatus: ''
+  bookingStatus: '',
+  bookingList: ''
 };
 
 const bookingReducers = (state = initialState, action) => {
@@ -11,6 +12,8 @@ const bookingReducers = (state = initialState, action) => {
       return {...state, bookingData: action.payload}
     case 'DATA_SAVED':
       return {...state, bookingStatus: action.payload}
+    case 'GET_ALL_BOOKING':
+      return {...state, bookingList: action.payload}
     default:
       return state;
   };

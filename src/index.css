@@ -52,7 +52,7 @@ a {
   margin-top: 20px;
   padding: 20px 30px;
   text-align: justify;
-  margin-bottom: 150px;
+  margin-bottom: 100px;
   border-radius: 5px;
 }
 
@@ -78,7 +78,7 @@ a {
 
 .footer {
   background: #383636;
-  padding: 50px;
+  padding: 20px;
   margin-top: 40px;
   color: #fff;
   text-align: center;
@@ -96,7 +96,7 @@ a {
 .detail-booking {
   margin-top: 20px;
   display: flex;
-  margin-bottom: 150px;
+  margin-bottom: 100px;
 }
 
 .detail-review {
@@ -109,7 +109,7 @@ a {
 
 .booking-review {
   display: flex;
-  margin-bottom: 150px;  
+  margin-bottom: 100px;  
 }
 
 .detail-event {
@@ -137,4 +137,9 @@ a {
   background: #e2e2e2;
   font-weight: 800;
   font-size: 18px;
+}
+
+.success-msg {
+  text-align: center;
+  margin-top: 50px;
 }

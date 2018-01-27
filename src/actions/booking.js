@@ -18,7 +18,7 @@ const dataSaved = (payload) => {
   return {
     type: 'DATA_SAVED',
     payload
-  }
+  };
 };
 
 export const saveBookingData = (bookingData) => {
@@ -31,6 +31,24 @@ export const saveBookingData = (bookingData) => {
       }))
     } catch (error) {
       console.log(error)      
-    }
-  }
-} 
+    };
+  };
+};
+
+const bookingList = (payload) => {
+  return {
+    type: 'GET_ALL_BOOKING',
+    payload
+  };
+};
+
+export const getAllBooking = () => {
+  return async (dispatch) => {
+    try {
+      let booking = await axios.get('http://localhost:3000/booking')
+      dispatch(bookingList(booking.data))
+    } catch (error) {
+      console.log(error)
+    };
+  };
+};

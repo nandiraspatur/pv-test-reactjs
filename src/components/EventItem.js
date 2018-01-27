@@ -25,7 +25,7 @@ class EventItem extends Component {
             <b>Rp {this.props.event.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}</b> /org
           </span>
           <Link to={`/events/${this.props.event._id}`}>
-            <button className='button-detail'>Cari Tiket</button>
+            <button className='button-detail'>Pesan Tiket</button>
           </Link>
         </Card.Content>
       </Card>
