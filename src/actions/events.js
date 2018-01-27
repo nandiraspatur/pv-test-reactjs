@@ -1,14 +1,13 @@
 import axios from 'axios'
 
-export const eventsData = (payload) => {
+const eventsData = (payload) => {
   return {
     type: 'GET_ALL_EVENTS',
-    payload: payload
+    payload
   };
 };
 
 export const getAllEvents = () => {
-  console.log('dispatch')
   return async (dispatch) => {
     try {
       let events = await axios.get('http://localhost:3000/events')
@@ -19,3 +18,27 @@ export const getAllEvents = () => {
   }
 }
 
+const eventDetailData = (payload) => {
+  return {
+    type: 'GET_EVENT_DETAIL',
+    payload
+  }
+}
+
+export const getEventDetail = (id) => {
+  return async (dispatch) => {
+    try {
+      let eventDetail = await axios.get(`http://localhost:3000/events/${id}`)
+      dispatch(eventDetailData(eventDetail))
+    } catch (error) {
+      console.log(error)
+    }
+  }
+}
+
+export const saveDateAmount = (payload) => {
+  return {
+    type: 'SAVE_DATE_AMOUNT',
+    payload
+  }
+}

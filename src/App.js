@@ -14,12 +14,13 @@ class App extends Component {
     return (
       <Provider store={store}>
         <Router>
-          <div>
+          <div className='page-wrap'>
             <Navbar/>
             <Container>
               <Route exact path='/' component={Home}/>
               <Route path='/events/:id' component={EventDetail}/>
             </Container>
+            <div className='footer'><p>Booking System | Nandira S Paturohman</p></div>
           </div>
         </Router>
       </Provider>

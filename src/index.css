@@ -20,3 +20,66 @@ body {
 a {
   color: black !important;
 }
+
+.event-info {
+  background: #fff;
+  margin-top: 20px;
+  padding: 20px 30px;
+  display: flex;
+  flex-direction: row;
+}
+
+.left-info {
+  flex: 2;
+}
+
+.right-info {
+  flex: 1;
+  text-align: right;
+}
+
+.event-description {
+  background: #fff;
+  margin-top: 20px;
+  padding: 20px 30px;
+  text-align: justify;
+}
+
+.event-booking {
+  background: #fff;
+  margin-top: 20px;
+  padding: 20px 30px;
+  text-align: justify;
+  margin-bottom: 150px;
+}
+
+.input-booking::-webkit-inner-spin-button, .input-booking::-webkit-clear-button {
+  display: none;
+}
+
+.ui.labeled.input.input-booking {
+  height: 40px;
+  margin-right: 10px;
+  padding: 0 10px;
+}
+
+.search-button {
+  float: right;
+}
+
+.page-wrap {
+  height: 100%;
+  position: relative;
+  min-height: 100vh;
+}
+
+.footer {
+  background: #383636;
+  padding: 50px;
+  margin-top: 40px;
+  color: #fff;
+  text-align: center;
+  position: absolute; 
+  bottom:0;
+  width: 100%;
+}
