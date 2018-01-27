@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route } from 'react-router-dom'
-import { Provider } from 'react-redux'
-import { Container } from 'semantic-ui-react'
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { Container } from 'semantic-ui-react';
 
-import store from './store'
-import Home from './components/Home'
-import Navbar from './components/Navbar'
-import EventDetail from './components/EventDetail'
+import store from './store';
+import Home from './components/Home';
+import Navbar from './components/Navbar';
+import EventDetail from './components/EventDetail';
+import BookingForm from './components/BookingForm';
+import BookingReview from './components/BookingReview';
 
 class App extends Component {
   render() {
@@ -19,13 +21,15 @@ class App extends Component {
             <Container>
               <Route exact path='/' component={Home}/>
               <Route path='/events/:id' component={EventDetail}/>
+              <Route exact path='/order' component={BookingForm}/>
+              <Route path='/order/review' component={BookingReview}/>
             </Container>
             <div className='footer'><p>Booking System | Nandira S Paturohman</p></div>
           </div>
         </Router>
       </Provider>
     );
-  }
-}
+  };
+};
 
 export default App;

@@ -11,12 +11,12 @@ class Navbar extends Component {render() {
           </Menu.Item>
           <Menu.Item>
             <Link to='/'>
-              Home
+              Beranda
             </Link>
           </Menu.Item>
           <Menu.Item>
             <Link to='/booking'>
-              Booking List
+              Daftar Pesanan
             </Link>
           </Menu.Item>
         </Container>

@@ -27,6 +27,7 @@ a {
   padding: 20px 30px;
   display: flex;
   flex-direction: row;
+  border-radius: 5px;
 }
 
 .left-info {
@@ -43,6 +44,7 @@ a {
   margin-top: 20px;
   padding: 20px 30px;
   text-align: justify;
+  border-radius: 5px;
 }
 
 .event-booking {
@@ -51,6 +53,7 @@ a {
   padding: 20px 30px;
   text-align: justify;
   margin-bottom: 150px;
+  border-radius: 5px;
 }
 
 .input-booking::-webkit-inner-spin-button, .input-booking::-webkit-clear-button {
@@ -82,4 +85,43 @@ a {
   position: absolute; 
   bottom:0;
   width: 100%;
+}
+
+.form-booking {
+  padding: 20px 30px;
+  background: #fff;
+  border-radius: 5px;
+}
+
+.detail-booking {
+  margin-top: 20px;
+  display: flex;
+  margin-bottom: 150px;
+}
+
+.detail-event {
+  background: #fff;
+  flex: 1;
+  border-radius: 5px;
+  padding: 20px 30px;
+  margin-right: 10px;
+}
+
+.total-booking {
+  background: #fff;
+  flex: 1;
+  border-radius: 5px;
+  padding: 20px 30px;
+  margin-left: 10px;
+}
+
+.review-button {
+  text-align: right;
+  margin-top: 20px;
+}
+
+.total-price {
+  background: #e2e2e2;
+  font-weight: 800;
+  font-size: 18px;
 }

@@ -27,7 +27,7 @@ class EventList extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    events: state.events.data
+    events: state.events
   }
 }
 

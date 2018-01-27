@@ -11,7 +11,7 @@ export const getAllEvents = () => {
   return async (dispatch) => {
     try {
       let events = await axios.get('http://localhost:3000/events')
-      dispatch(eventsData(events))
+      dispatch(eventsData(events.data))
     } catch (error) {
       console.log(error)
     }
@@ -29,7 +29,7 @@ export const getEventDetail = (id) => {
   return async (dispatch) => {
     try {
       let eventDetail = await axios.get(`http://localhost:3000/events/${id}`)
-      dispatch(eventDetailData(eventDetail))
+      dispatch(eventDetailData(eventDetail.data))
     } catch (error) {
       console.log(error)
     }
