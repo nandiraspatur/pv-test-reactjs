@@ -24,7 +24,7 @@ const dataSaved = (payload) => {
 export const saveBookingData = (bookingData) => {
   return async (dispatch) => {
     try {
-      let booking = await axios.post('http://localhost:3000/booking', bookingData)
+      let booking = await axios.post('http://api.booking.bhinfinix.com/booking', bookingData)
       if(booking.data) dispatch(dataSaved({
         status: 'success',
         data: booking.data
@@ -45,7 +45,7 @@ const bookingList = (payload) => {
 export const getAllBooking = () => {
   return async (dispatch) => {
     try {
-      let booking = await axios.get('http://localhost:3000/booking')
+      let booking = await axios.get('http://api.booking.bhinfinix.com/booking')
       dispatch(bookingList(booking.data))
     } catch (error) {
       console.log(error)

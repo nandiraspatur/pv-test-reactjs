@@ -10,7 +10,7 @@ const eventsData = (payload) => {
 export const getAllEvents = () => {
   return async (dispatch) => {
     try {
-      let events = await axios.get('http://localhost:3000/events')
+      let events = await axios.get('http://api.booking.bhinfinix.com/events')
       dispatch(eventsData(events.data))
     } catch (error) {
       console.log(error)
@@ -28,7 +28,7 @@ const eventDetailData = (payload) => {
 export const getEventDetail = (id) => {
   return async (dispatch) => {
     try {
-      let eventDetail = await axios.get(`http://localhost:3000/events/${id}`)
+      let eventDetail = await axios.get(`http://api.booking.bhinfinix.com/events/${id}`)
       dispatch(eventDetailData(eventDetail.data))
     } catch (error) {
       console.log(error)
