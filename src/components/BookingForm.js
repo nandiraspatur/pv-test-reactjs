@@ -6,7 +6,6 @@ import { saveContactData } from '../actions/booking'
 
 class BookingForm extends Component {
   handleInput({target}) {
-    console.log(target.value)
     this.setState({
       [target.name]: target.value
     });
@@ -26,16 +25,16 @@ class BookingForm extends Component {
     if(!dateStr) return ''
     let date = new Date(dateStr);
 
-    var monthNames = [
+    let monthNames = [
       "Januari", "Februari", "Maret",
       "April", "Mei", "Juni", "Juli",
       "Agustus", "September", "Oktober",
       "November", "Desember"
     ];
   
-    var day = date.getDate();
-    var monthIndex = date.getMonth();
-    var year = date.getFullYear();
+    let day = date.getDate();
+    let monthIndex = date.getMonth();
+    let year = date.getFullYear();
     return day + ' ' + monthNames[monthIndex] + ' ' + year;
   };
 
@@ -56,6 +55,7 @@ class BookingForm extends Component {
 
   render () {
     let eventDetail = this.props.eventDetail;
+    let bookingData = this.props.bookingData;
     return (
       <div>
         <h1>Pesanan Anda</h1>
@@ -87,7 +87,7 @@ class BookingForm extends Component {
                 </Table.Row>
                 <Table.Row>
                   <Table.Cell>Jumlah Tamu:</Table.Cell>
-                  <Table.Cell>{this.props.bookingData.amount} orang</Table.Cell>
+                  <Table.Cell>{bookingData.amount} orang</Table.Cell>
                 </Table.Row>
               </Table.Body>
             </Table>
@@ -97,7 +97,7 @@ class BookingForm extends Component {
             <Table singleLine>
               <Table.Body>
                 <Table.Row>
-                  <Table.Cell>Jumlah {this.props.bookingData.amount}x</Table.Cell>
+                  <Table.Cell>Jumlah {bookingData.amount}x</Table.Cell>
                   <Table.Cell>Rp {this.getPrice()}</Table.Cell>
                 </Table.Row>
                 <Table.Row>
@@ -123,7 +123,6 @@ class BookingForm extends Component {
 };
 
 const mapStateToProps = (state) => {
-  console.log(state)
   return {
     bookingData: state.bookingReducers.bookingData,
     eventDetail: state.eventReducers.eventDetail

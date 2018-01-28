@@ -9,7 +9,6 @@ import EventItem from './EventItem'
 class EventList extends Component {
   componentWillMount() {
     this.props.getAllEvents()
-    console.log(this.props)
   }
 
   render () {
@@ -22,7 +21,7 @@ class EventList extends Component {
             })}
           </Card.Group>
           :
-          <div class='loading'>
+          <div className='loading'>
             <Spinner name="ball-beat" color='orange' fadeIn='none'/>
           </div>
         }
@@ -32,7 +31,6 @@ class EventList extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state)
   return {
     events: state.eventReducers.events
   }

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Image, Icon, Input, Button } from 'semantic-ui-react';
 import Spinner from 'react-spinkit';
 
-import { getEventDetail, clearEventDetail } from '../actions/events';
+import { getEventDetail } from '../actions/events';
 import { saveDateAmount } from '../actions/booking'
 
 class EventDetail extends Component {
@@ -52,10 +52,6 @@ class EventDetail extends Component {
   componentDidMount() {
     window.scrollTo(0, 0)
   }
-
-  componentWillUnmount() {
-    this.props.clearEventDetail()
-  }
   
   render() {
     let eventDetail = this.props.eventDetail;
@@ -87,7 +83,7 @@ class EventDetail extends Component {
             </div>
           </div>
           :
-          <div class='loading'>
+          <div className='loading'>
             <Spinner name="ball-beat" color='orange' fadeIn='none'/>
           </div>
         }
@@ -97,7 +93,6 @@ class EventDetail extends Component {
 };
 
 const mapStateToProps = (state) => {
-  console.log(state)
   return {
     eventDetail: state.eventReducers.eventDetail
   };
@@ -107,7 +102,6 @@ const mapDispatchToProps = (dispatch) => {
   return {
     getEventDetail: (id) => dispatch(getEventDetail(id)),
     saveDateAmount: (value) => dispatch(saveDateAmount(value)),
-    clearEventDetail: () => dispatch(clearEventDetail())
   };
 };
 

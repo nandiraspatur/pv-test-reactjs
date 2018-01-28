@@ -10,18 +10,24 @@ class BookingReview extends Component {
     if(!dateStr) return ''
     let date = new Date(dateStr);
 
-    var monthNames = [
+    let monthNames = [
       "Januari", "Februari", "Maret",
       "April", "Mei", "Juni", "Juli",
       "Agustus", "September", "Oktober",
       "November", "Desember"
     ];
   
-    var day = date.getDate();
-    var monthIndex = date.getMonth();
-    var year = date.getFullYear();
+    let day = date.getDate();
+    let monthIndex = date.getMonth();
+    let year = date.getFullYear();
     return day + ' ' + monthNames[monthIndex] + ' ' + year;
   };
+
+  getPrice(total) {
+    let totalPrice;
+    if(total) totalPrice = total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    return totalPrice;
+  }
 
   handleClickSubmit() {
     this.props.saveBooking(this.props.bookingData)
@@ -35,7 +41,6 @@ class BookingReview extends Component {
   render() {
     let bookingData = this.props.bookingData
     let eventDetail = this.props.eventDetail
-    let total = bookingData.total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
     return (
       <div>
         <h1>Review Pesanan</h1>
@@ -44,7 +49,7 @@ class BookingReview extends Component {
             <h3>Pesanan</h3>
             <Image fluid src={eventDetail.urlImage}/>
             <h4>{eventDetail.name}</h4>
-            <span>{eventDetail.location}</span>
+            <p>{eventDetail.location}</p>
           </div>
           <div className='detail-review'>
             <h3>Detail</h3>          
@@ -82,7 +87,7 @@ class BookingReview extends Component {
               <Table.Body>
                 <Table.Row>
                   <Table.Cell>Jumlah {bookingData.amount}x</Table.Cell>
-                  <Table.Cell width={6}>Rp {total}</Table.Cell>
+                  <Table.Cell width={6}>Rp {this.getPrice(bookingData.total)}</Table.Cell>
                 </Table.Row>
                 <Table.Row>
                   <Table.Cell>Pajak</Table.Cell>
@@ -92,7 +97,7 @@ class BookingReview extends Component {
               <Table.Footer>
                 <Table.Row className='total-price'>
                   <Table.Cell>Total</Table.Cell>
-                  <Table.Cell>Rp {total}</Table.Cell>
+                  <Table.Cell>Rp {this.getPrice(bookingData.total)}</Table.Cell>
                 </Table.Row>
               </Table.Footer>
             </Table>
@@ -107,7 +112,6 @@ class BookingReview extends Component {
 };
 
 const mapStateToProps = (state) => {
-  console.log(state)
   return {
     bookingData: state.bookingReducers.bookingData,
     eventDetail: state.eventReducers.eventDetail

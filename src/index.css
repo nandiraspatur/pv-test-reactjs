@@ -21,6 +21,10 @@ a {
   color: black !important;
 }
 
+.home-wrap {
+  margin-bottom: 100px;
+}
+
 .event-info {
   background: #fff;
   margin-top: 20px;

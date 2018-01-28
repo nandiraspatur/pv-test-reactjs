@@ -4,10 +4,6 @@ import { Image } from 'semantic-ui-react';
 import Spinner from 'react-spinkit';
 
 class BookingSuccess extends Component {
-  componentWillMount() {
-    console.log(this.props)
-  };
-
   render () {
     return ( 
       <div>
@@ -18,7 +14,7 @@ class BookingSuccess extends Component {
             <Image centered size='medium' src='https://www169.lunapic.com/do-not-link-here-use-hosting-instead/151706781616883573?8498162669'/>
           </div>
           :
-          <div class='loading'>
+          <div className='loading'>
             <Spinner name="ball-beat" color='orange' fadeIn='none'/>
           </div>
         }

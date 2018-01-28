@@ -16,7 +16,7 @@ const bookingReducers = (state = initialState, action) => {
       return {...state, bookingList: action.payload}
     default:
       return state;
-  };
+  }
 };
 
 export default bookingReducers;
