@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Image, Icon, Input, Button } from 'semantic-ui-react';
 import Spinner from 'react-spinkit';
 
-import { getEventDetail } from '../actions/events';
+import { getEventDetail, clearEventDetail } from '../actions/events';
 import { saveDateAmount } from '../actions/booking'
 
 class EventDetail extends Component {
@@ -24,6 +24,24 @@ class EventDetail extends Component {
     };
   }
 
+  today() {
+    let date = new Date(),
+        day = date.getDate().toString(),
+        month = (date.getMonth()+1).toString(),
+        year = date.getFullYear().toString();
+
+    if(day.length === 1) {
+      day = '0'+day
+    }
+    if(month.length === 1) {
+      month = '0'+month
+    }
+
+    let today = `${year}-${month}-${day}`;
+
+    return today;
+  };
+
   componentWillMount() {
     this.setState({
       event: this.props.match.params.id.toString()
@@ -34,6 +52,10 @@ class EventDetail extends Component {
   componentDidMount() {
     window.scrollTo(0, 0)
   }
+
+  componentWillUnmount() {
+    this.props.clearEventDetail()
+  }
   
   render() {
     let eventDetail = this.props.eventDetail;
@@ -41,7 +63,7 @@ class EventDetail extends Component {
       <div>
         {eventDetail ?
           <div>
-            <Image fluid src={eventDetail.urlImage}/>
+            <Image fluid src={eventDetail.urlImage}/><br/>
             <div className='event-info'>
               <div className='left-info'>
                 <h1>{eventDetail.name}</h1>
@@ -59,7 +81,7 @@ class EventDetail extends Component {
             </div>
             <div className='event-booking' id='pesan'>
               <h3>Beli Tiket</h3>
-              <Input label='Tanggal Kunjungan :' className='input-booking' name='date' type='date' placeholder='Tanggal Kunjungan' onChange={(e) => this.handleInput(e)}/>
+              <Input label='Tanggal Kunjungan :' className='input-booking' name='date' type='date' min={this.today()} placeholder='Tanggal Kunjungan' onChange={(e) => this.handleInput(e)}/>
               <Input label='Jumlah :' className='input-booking' name='amount' type='number' placeholder='Tiket/Orang' onChange={(e) => this.handleInput(e)}/>
               <Button color='orange' className='search-button' onClick={() => this.handleClickSubmit()}>Pesan</Button>
             </div>
@@ -84,7 +106,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     getEventDetail: (id) => dispatch(getEventDetail(id)),
-    saveDateAmount: (value) => dispatch(saveDateAmount(value))
+    saveDateAmount: (value) => dispatch(saveDateAmount(value)),
+    clearEventDetail: () => dispatch(clearEventDetail())
   };
 };
 

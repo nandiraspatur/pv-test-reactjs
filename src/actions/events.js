@@ -35,3 +35,10 @@ export const getEventDetail = (id) => {
     };
   };
 };
+
+export const clearEventDetail = () => {
+  return {
+    type: 'CLEAR_EVENT_DETAIL',
+    payload: ''
+  }
+}

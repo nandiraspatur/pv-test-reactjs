@@ -9,6 +9,8 @@ const eventReducers = (state = initialState, action) => {
       return {...state, events: action.payload};
     case 'GET_EVENT_DETAIL':
       return {...state, eventDetail: action.payload}
+    case 'CLEAR_EVENT_DETAIL':
+      return {...state, eventDetail: action.payload}
     default:
       return state;
   }
