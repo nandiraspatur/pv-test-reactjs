@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, Image, Divider, Table } from 'semantic-ui-react'
+import { Form, Image, Divider, Table, Button } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 
 import { saveContactData } from '../actions/booking'
@@ -113,7 +113,7 @@ class BookingForm extends Component {
               </Table.Footer>
             </Table>
             <div className='review-button'>
-              <button onClick={() => this.handleClickSubmit()}>Lanjut ke review</button>
+              <Button color='orange' onClick={() => this.handleClickSubmit()}>Lanjut ke review</Button>
             </div>
           </div>
         </div>

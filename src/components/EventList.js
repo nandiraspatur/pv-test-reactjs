@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { Card } from 'semantic-ui-react'
+import Spinner from 'react-spinkit';
 
 import { getAllEvents } from '../actions/events'
 import EventItem from './EventItem'
@@ -8,19 +9,24 @@ import EventItem from './EventItem'
 class EventList extends Component {
   componentWillMount() {
     this.props.getAllEvents()
+    console.log(this.props)
   }
 
   render () {
     return (
-      <Card.Group itemsPerRow={3} stackable>
-        {!this.props.events ? 
-          <p>Loading...</p>
+      <div>
+        {this.props.events ? 
+          <Card.Group itemsPerRow={3} stackable>
+            {this.props.events.map((event, i) => {
+              return <EventItem key={i} event={event}/>
+            })}
+          </Card.Group>
           :
-          this.props.events.map((event, i) => {
-            return <EventItem key={i} event={event}/>
-          })
+          <div class='loading'>
+            <Spinner name="ball-beat" color='orange' fadeIn='none'/>
+          </div>
         }
-      </Card.Group>
+      </div>
     )
   }
 }

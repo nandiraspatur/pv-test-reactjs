@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Table } from 'semantic-ui-react';
+import { Table, Button } from 'semantic-ui-react';
+import Spinner from 'react-spinkit';
 
 import { getAllBooking } from '../actions/booking';
 
@@ -30,9 +31,7 @@ class BookingList extends Component {
     return (
       <div>
         <h1>Daftar Pesanan</h1>
-        {!this.props.bookingList ?
-          <p>Loading...</p>
-          :
+        {this.props.bookingList ?
           <Table celled padded>
             <Table.Header>
               <Table.Row>
@@ -55,12 +54,16 @@ class BookingList extends Component {
                             <Table.Cell>{booking.fullname}</Table.Cell>
                             <Table.Cell>{this.getDate(booking.date)}</Table.Cell>
                             <Table.Cell>Rp {booking.total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}</Table.Cell>
-                            <Table.Cell textAlign='center'><button>Detail</button></Table.Cell>
+                            <Table.Cell textAlign='center'><Button color='orange'>Detail</Button></Table.Cell>
                           </Table.Row>
                 })
               }
             </Table.Body>
           </Table>
+          :
+          <div class='loading'>
+            <Spinner name="ball-beat" color='orange' fadeIn='none'/>
+          </div>
         }
       </div>
     )

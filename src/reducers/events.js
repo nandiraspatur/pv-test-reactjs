@@ -1,5 +1,5 @@
 let initialState = {
-  events: [],
+  events: '',
   eventDetail: '',
 }
 

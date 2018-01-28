@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, Image, Icon } from 'semantic-ui-react';
+import { Card, Image, Icon, Button } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
 class EventItem extends Component {
@@ -21,11 +21,11 @@ class EventItem extends Component {
           </Card.Description>
         </Card.Content>
         <Card.Content>
-          <span>
-            <b>Rp {this.props.event.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}</b> /org
+          <span className='price'>
+            Rp {this.props.event.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')} /org
           </span>
           <Link to={`/events/${this.props.event._id}`}>
-            <button className='button-detail'>Pesan Tiket</button>
+            <Button className='button-detail' color='orange'>Pesan Tiket</Button>
           </Link>
         </Card.Content>
       </Card>

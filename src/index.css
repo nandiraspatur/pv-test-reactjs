@@ -143,3 +143,20 @@ a {
   text-align: center;
   margin-top: 50px;
 }
+
+.price {
+  font-weight: 800;
+  font-size: 16px;
+  vertical-align: -webkit-baseline-middle;
+  color: darkorange;
+}
+
+.price-detail {
+  font-weight: 800;
+  font-size: 18px;
+}
+
+.loading {
+  text-align: center;
+  padding: 200px 0;
+}

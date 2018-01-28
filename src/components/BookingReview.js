@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Image, Divider, Table } from 'semantic-ui-react';
+import { Image, Divider, Table, Button } from 'semantic-ui-react';
 import { connect } from 'react-redux';
+
 import { saveBookingData } from '../actions/booking';
 
 class BookingReview extends Component {
@@ -96,7 +97,7 @@ class BookingReview extends Component {
               </Table.Footer>
             </Table>
             <div className='review-button'>
-              <button onClick={() => this.handleClickSubmit()}>Pembayaran</button>
+              <Button color='orange' onClick={() => this.handleClickSubmit()}>Pembayaran</Button>
             </div>
           </div>
         </div>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Image, Icon, Input } from 'semantic-ui-react';
+import { Image, Icon, Input, Button } from 'semantic-ui-react';
+import Spinner from 'react-spinkit';
 
 import { getEventDetail } from '../actions/events';
 import { saveDateAmount } from '../actions/booking'
@@ -38,9 +39,7 @@ class EventDetail extends Component {
     let eventDetail = this.props.eventDetail;
     return (
       <div>
-        {!eventDetail ?
-          <p>Loading...</p>
-          :
+        {eventDetail ?
           <div>
             <Image fluid src={eventDetail.urlImage}/>
             <div className='event-info'>
@@ -50,8 +49,8 @@ class EventDetail extends Component {
               </div>
               <div className='right-info'>
                 <span>Mulai Dari</span>
-                <p>Rp {eventDetail.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}</p>
-                <a href='#pesan'><button>Pesan Tiket</button></a>
+                <p className='price-detail'>Rp {eventDetail.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}</p>
+                <a href='#pesan'><Button color='orange'>Pesan Tiket</Button></a>
               </div>
             </div>
             <div className='event-description'>
@@ -59,10 +58,15 @@ class EventDetail extends Component {
               <p>{eventDetail.description}</p>
             </div>
             <div className='event-booking' id='pesan'>
+              <h3>Beli Tiket</h3>
               <Input label='Tanggal Kunjungan :' className='input-booking' name='date' type='date' placeholder='Tanggal Kunjungan' onChange={(e) => this.handleInput(e)}/>
               <Input label='Jumlah :' className='input-booking' name='amount' type='number' placeholder='Tiket/Orang' onChange={(e) => this.handleInput(e)}/>
-              <button className='search-button' onClick={() => this.handleClickSubmit()}>Pesan</button>
+              <Button color='orange' className='search-button' onClick={() => this.handleClickSubmit()}>Pesan</Button>
             </div>
+          </div>
+          :
+          <div class='loading'>
+            <Spinner name="ball-beat" color='orange' fadeIn='none'/>
           </div>
         }
       </div>
